@@ -1,0 +1,62 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	title: string;
+	description: string;
+	ogTitle: string;
+    ogDescription: string;
+	ogType: string;
+	ogUrl: string;
+	ogImage: string;
+}
+
+const { 
+	title,
+	description,
+	ogTitle,
+    ogDescription,
+	ogType,
+	ogUrl,
+	ogImage,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <ViewTransitions />
+
+        <meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<meta property="og:title" content={ogTitle} />
+        <meta property="og:description" content={ogDescription}/>
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={ogUrl} />
+		<meta property="og:image" content={ogImage} />
+        
+
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<title>{title}</title>
+
+		<style>
+			body{
+				margin: 0;
+			}
+           
+		</style>
+	</head>
+	
+	<body>
+        <slot />
+        
+	</body>
+</html>
