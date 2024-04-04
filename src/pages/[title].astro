@@ -68,7 +68,9 @@ title={post.attributes.Title}
         </div>
         <br>
         <br>
+        {post.attributes.Link && post.attributes.Link.trim() !== "" && ( // Check if Link attribute is not an empty string
           <a class="link" href={post.attributes.Link} target="_blank">Vist Website</a>
+      )}
         <br>
         <br>
         <article class="article">
