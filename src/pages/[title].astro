@@ -67,7 +67,11 @@ title={post.attributes.Title}
           </p>
         </div>
         <br>
-        <article class="">
+        <br>
+          <a class="link" href={post.attributes.Link} target="_blank">Vist Website</a>
+        <br>
+        <br>
+        <article class="article">
           <MarkdownContent content={post.attributes.Content} />
         </article>
       </div>
@@ -81,6 +85,7 @@ title={post.attributes.Title}
       font-family: "Inter", sans-serif;
       padding: 10px;
     }
+
     .main {
       height: auto;
       max-width: 100vw;
@@ -167,6 +172,27 @@ title={post.attributes.Title}
       font-size: 16px;
       background-color: #2a333e;
       }
+    }
+    .article{
+      color: #eae4d1;
+    }
+  
+    .link{
+      width: 100%;
+      background-color: #2a333e;
+      border: #eae4d1 solid 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      border-radius: 10px;
+      color:#eae4d1;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .link:hover{
+      background-color: #eae4d1;
+      color:#2a333e;
     }
   </style>
 </Layout>
