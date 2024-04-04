@@ -67,11 +67,11 @@ title={post.attributes.Title}
           </p>
         </div>
         <br>
-        <br>
+        
         {post.attributes.Link && post.attributes.Link.trim() !== "" && ( // Check if Link attribute is not an empty string
           <a class="link" href={post.attributes.Link} target="_blank">Vist Website</a>
       )}
-        <br>
+    
         <br>
         <article class="article">
           <MarkdownContent content={post.attributes.Content} />
