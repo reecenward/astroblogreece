@@ -81,9 +81,15 @@ title={post.attributes.Title}
   </div>
 
   <style>
+
+:root {
+  --background: #FFFBEF;
+  --text: #2a333e; 
+
+}
     body {
-      background-color: #2a333e;
-      color: #eae4d1;
+      background-color: var(--background);
+      color: var(--text);
       font-family: "Inter", sans-serif;
       padding: 10px;
     }
@@ -108,13 +114,13 @@ title={post.attributes.Title}
     }
     .blog-wrapper {
       text-decoration: none;
-      color: #eae4d1;
+      color: var(--text);
       margin: 20px;
       width: 100%;
     }
     .bio-p {
 	margin: 0;
-	color: #eae4d1a5;
+  color: var(--text);
 	line-height: 1.7em;
   }
     .banner {
@@ -147,10 +153,10 @@ title={post.attributes.Title}
       position: sticky; /* Make it sticky */
       top: 20px; /* Adjust the top position */
       left: 20px; /* Position it to the left */
-      color: #eae4d1;
+      color: var(--text);
       text-decoration: none;
       font-size: 16px;
-      background-color: #eae4d135; /* Button background color */
+      background-color: #2a333e23; /* Button background color */
       height: 50px;
       width: 50px;
       border-radius: 100px;
@@ -176,19 +182,19 @@ title={post.attributes.Title}
       }
     }
     .article{
-      color: #eae4d1;
+      color: var(--text);
     }
   
     .link{
       width: 100%;
-      background-color: #2a333e;
+      background-color: var(--background);
       border: #eae4d1 solid 1px;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 40px;
       border-radius: 10px;
-      color:#eae4d1;
+      color: var(--text);
       text-decoration: none;
       font-weight: 500;
     }
