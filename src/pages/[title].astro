@@ -156,15 +156,19 @@ title={post.attributes.Title}
       color: var(--text);
       text-decoration: none;
       font-size: 16px;
-      background-color: #2a333e23; /* Button background color */
+      background-color: var(--background); /* Button background color */
       height: 50px;
       width: 50px;
-      border-radius: 100px;
-      border: none;
+      border-radius: 5px;
+      border: #eae4d1 solid 1px;
       margin-right: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .back-button:hover{
+      background-color: #eae4d1;
+      color:#2a333e;
     }
  
     .back-button img {
