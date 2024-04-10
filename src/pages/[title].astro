@@ -179,11 +179,18 @@ title={post.attributes.Title}
       /* Apply styles only on screens smaller than 768px (typically mobile screens) */
       .back-button {
        position: fixed;
-       color: #2a333e;
+       color: var(--text);
+       border-radius: 5px;
       text-decoration: none;
+      border: #eae4d1 solid 1px;
       font-size: 16px;
-      background-color: #2a333e;
+      background-color: var(--background);
       }
+    }
+   
+    .back-button:hover{
+      background-color: #eae4d1;
+      color:#2a333e;
     }
     .article{
       color: var(--text);
