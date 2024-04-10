@@ -33,9 +33,12 @@ const formatDate = (dateString: string) => {
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", options);
 };
+
+
 ---
 
 <Layout
+
 title={post.attributes.Title}
 	description={post.attributes.Description}
 	ogTitle={post.attributes.Title}
@@ -69,12 +72,14 @@ title={post.attributes.Title}
         <br>
         
         {post.attributes.Link && post.attributes.Link.trim() !== "" && ( // Check if Link attribute is not an empty string
-          <a class="link" href={post.attributes.Link} target="_blank">Vist Website</a>
+          <a class="link" href={post.attributes.Link} target="_blank">{post.attributes.Linkname}</a>
       )}
     
         <br>
+     
         <article class="article">
           <MarkdownContent content={post.attributes.Content} />
+    
         </article>
       </div>
     </div>
@@ -87,6 +92,7 @@ title={post.attributes.Title}
   --text: #2a333e; 
 
 }
+
     body {
       background-color: var(--background);
       color: var(--text);
@@ -149,6 +155,8 @@ title={post.attributes.Title}
       font-weight: 500;
    
     }
+
+
     .back-button {
       position: sticky; /* Make it sticky */
       top: 20px; /* Adjust the top position */
@@ -213,5 +221,7 @@ title={post.attributes.Title}
       background-color: #eae4d1;
       color:#2a333e;
     }
+   
   </style>
 </Layout>
+  
