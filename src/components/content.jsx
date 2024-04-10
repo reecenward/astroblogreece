@@ -8,7 +8,7 @@ const MarkdownContent = ({ content }) => {
         img: ({ alt, ...props }) => (
           <img
             {...props}
-            style={{ width: '250px', maxWidth: '100%' }}
+            style={{ width: '100%', maxWidth: '100%' }}
             alt={alt}
           />
         ),
