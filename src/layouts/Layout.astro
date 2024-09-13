@@ -1,5 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import Nav from '../components/nav.astro';
+import Footer from "../components/footer.astro"
 
 interface Props {
 	title: string;
@@ -25,9 +27,12 @@ const {
 <!doctype html>
 <html lang="en">
 	<head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+		  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		  rel="stylesheet"
+		/>
         <ViewTransitions />
 
         <meta charset="UTF-8" />
@@ -47,16 +52,35 @@ const {
 
 		<title>{title}</title>
 
-		<style>
-			body{
-				margin: 0;
-			}
-           
-		</style>
 	</head>
+
+	<style>
+					:root {
+  --font-family: "Poppins", sans-serif;
+}
+
+  
+
+			body {
+	margin: 0;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+
+  padding: 10px;
+  color: #101010;
+  background-color: #fffbef;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+	</style>
 	
-	<body>
-        <slot />
-        
+	<body class="w-full flex flex-col items-center">
+		<div class="max-w-screen-sm">
+			<Nav/>
+			<slot />
+			<Footer/>
+		</div>
 	</body>
 </html>

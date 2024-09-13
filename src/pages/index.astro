@@ -1,3 +1,180 @@
 ---
+import Layout from "../layouts/Layout.astro";
+
+const response = await fetch(
+  "https://strapi-production-71a1.up.railway.app/api/reecenwards?sort[0]=createdAt:desc"
+);
+const data = await response.json();
+
+const formatDate = (dateString: string) => {
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  };
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", options);
+};
 ---
-<meta http-equiv="refresh" content="0; URL='/home'" />
+
+<Layout
+  title="Reece's Website"
+  description="Hi, I'm Reece - Web Designer, Developer, and Social Media Marketer"
+  ogTitle="Reece's Website"
+  ogDescription="Hi, I'm Reece - Web Designer, Developer, and Social Media Marketer"
+  ogType="website"
+  ogUrl='https://reecenward.com'
+  ogImage="."
+>
+  <main class="lg:container md:mx-auto py-12">
+    <div class="blog-list-wrapper">
+      <section class="bio-wrapper">
+        <header>
+          <h1 class="text-3xl font-black mb-6">Hi, I'm Reece 🇨🇦 ✌️ Web Designer, Developer, and Social Media Marketer</h1>
+        </header>
+        <p class="bio-p"> 
+          I'm Reece, a self-taught web designer and developer with a passion for creating clean, high-performing websites. With a background in coding across multiple languages, I specialize in turning concepts into seamless digital experiences. Alongside web development, I run a social media marketing agency (SMMA), helping brands grow and build engaged communities. Whether it's crafting websites or scaling businesses online, I focus on delivering impactful results.
+      </p>
+      </section>
+      <br>
+      {data.data.length > 0 ? (
+      <section>
+        <h2 class="text-2xl font-black">What i have been up to:</h2>
+      {
+        data.data.map(
+          (l: {
+            id: number;
+            attributes: {
+              Title: string;
+              publishedAt: string;
+              Description: string;
+            };
+          }) => (
+            <a class="blog-wrapper" href={`/${l.attributes.Title}`}>
+              <div class="t-wrapper">
+                <h3 class="blog-title">{l.attributes.Title}</h3>
+                <p class="blog-date ml-3"> {formatDate(l.attributes.publishedAt)}</p>
+              </div>
+              <p class="blog-dec">{l.attributes.Description}</p>
+            </a>
+          )
+        )
+      }
+      </section>
+      ) : (
+    
+      <section class="coming-soon">
+        <article>
+        <h2 class="cs-h">Coming Soon!</h2>
+        <p class="cs-p">Stay tuned for our upcoming content.</p>
+        </article>
+      </section>
+    )}
+    </div>
+  </main>
+
+  <style>
+  
+    .blog-date {
+      font-size: 15px;
+      font-weight: 100;
+    
+    }
+
+    .t-wrapper{
+      display: flex;
+      align-items: center;
+    }
+
+    .blog-dec {
+      font-weight: 200;
+    }
+
+    .bio-wrapper {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .bio {
+      width: 100%;
+      font-size: 25px;
+    }
+ 
+  
+    .bio-p {
+      margin: 0;
+    
+      color: var(--text);
+      line-height: 1.7em;
+    }
+
+    .blog-wrapper {
+      text-decoration: none;
+      /* color: #eae4d1; */
+      color: var(--text);
+      margin: 20px;
+      width: 100%;
+    }
+
+    .blog-wrapper:hover {
+      cursor: pointer;
+    }
+
+    .blog-wrapper:hover {
+      text-decoration: none;
+    }
+
+    .blog-title {
+      font-size: 20px;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-style: solid;
+      margin: 0;
+    }
+
+
+    .divider {
+      margin: 0;
+      padding: 5px;
+    }
+    .bio-p-bold{
+     padding: 2.5px 5px 2.5px 5px;
+     border: var(--text) .5px solid;
+     border-radius: 5px;
+     font-size: 12px;
+     color: var(--text);
+      text-decoration: none;
+
+    }
+    .bio-p-bold:hover{
+     background-color: var(--background);
+     color: var(--text);
+     cursor: default;
+
+    }
+    .bio-p-bold-2{
+      text-decoration-line: underline;
+  text-decoration-style: dashed; 
+  
+   color: var(--text);
+    }
+    .bio-p-bold-2:hover{
+     
+      color: var(--text);
+     cursor:default;
+    }
+    .bio-container{
+      display: flex;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    .small-icon{
+      width: 12px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+   
+  </style>
+</Layout>
