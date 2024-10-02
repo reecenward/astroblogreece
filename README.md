@@ -1,1 +1,1 @@
-My blog code
+I wanted to redo my site which was previously built with React for the frontend and Strapi as the CMS. But I thought it was a bit much to use React for such a simple site. So I decided to switch to using Astro JS which is known for being used as a frontend for blogs because of its SSR features and performance. Plus if I don't have to always fetch the data from Strapi when a user goes to my site it can save me some money.
